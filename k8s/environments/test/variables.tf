@@ -1,0 +1,1 @@
+# No variables are needed, use kubectl configuration 

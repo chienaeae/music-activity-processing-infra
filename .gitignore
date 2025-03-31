@@ -1,0 +1,26 @@
+# Terraform working directory
+.terraform/
+
+# Terraform state files (local deployment will generate)
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform crash logs
+crash.log
+
+# Sensitive variable overrides
+*.tfvars
+*.tfvars.json
+
+# IDE/editor specific files
+.vscode/
+.idea/
+.DS_Store
+
+# Terraform plan output
+*.tfplan
+
+# OS-specific files
+Thumbs.db
+ehthumbs.db
+desktop.ini
