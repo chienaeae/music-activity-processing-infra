@@ -153,8 +153,6 @@ Each file is a declarative Argo CD `Application` resource, defining the Git repo
 2. Argo CD continuously monitors the Git repository and automatically syncs changes to the AKS cluster
 3. All configuration and deployment changes are version-controlled and audited through Git
 
-
-
 ### a. Environment Setup
 
 - **Dev Environment**: A stable environment used for infrastructure development and internal testing. It supports iterative changes during feature implementation.
@@ -163,37 +161,7 @@ Each file is a declarative Argo CD `Application` resource, defining the Git repo
 
 > **Note:** This is an experimental project, and no dedicated production environment is currently planned or maintained.
 
-### b. Usage Instructions
-
-#### Deploy Dev Environment
-```bash
-cd environments/dev
-terraform init
-terraform plan -var="sql_admin_password=<your-secure-password>"
-terraform apply -var="sql_admin_password=<your-secure-password>"
-```
-
-#### Deploy Test Environment
-```bash
-cd environments/test
-terraform init
-terraform plan -var="sql_admin_password=<your-secure-password>"
-terraform apply -var="sql_admin_password=<your-secure-password>"
-```
-
-
-#### Destroy Dev Environment
-```bash
-cd environments/dev
-terraform destroy -var="sql_admin_password=<your-secure-password>"
-```
-
-#### Destroy Test Environment
-```bash
-terraform destroy -var="sql_admin_password=<your-secure-password>"
-```
-
-### c. GitOps Integration with Argo CD
+### b. GitOps Integration with Argo CD
 
 - **Argo CD** is automatically installed into the AKS cluster using a Terraform-managed Helm release.
 - Each environment includes a Terraform definition for one or more `argocd_application` resources that point to the Git-based application configuration repository.
@@ -204,7 +172,7 @@ terraform destroy -var="sql_admin_password=<your-secure-password>"
 2. Argo CD continuously syncs the changes from Git to the AKS cluster.
 3. All configuration and deployment changes are version-controlled and auditable via Git.
 
-### d. CI/CD Pipeline
+### c. CI/CD Pipeline
 
 - **GitHub Actions Pipelines** automate provisioning and deployments:
   - Terraform Init → Plan → Apply
@@ -214,7 +182,7 @@ terraform destroy -var="sql_admin_password=<your-secure-password>"
 
 - **Secrets Management**: GitHub Secrets and/or Azure Key Vault are used for managing sensitive data.
 
-### e. Two-stage Terraform Deployment Strategy
+### d. Two-stage Terraform Deployment Strategy
 
 In this architecture, Terraform is divided into two stages to deploy the base resources and Kubernetes applications, making the process easier to maintain and expand:
 
