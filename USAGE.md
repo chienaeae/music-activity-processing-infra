@@ -1,6 +1,6 @@
 # Usage Instructions - Two-stage Terraform deployment process
 
-This project implements a two-stage Terraform deployment strategy, separating the infrastructure layer (infra) from the Kubernetes layer (k8s), making the architecture more modular and maintainable.
+This document describes the usage instructions for the two-stage Terraform deployment process.
 
 ## Initial Setup
 
